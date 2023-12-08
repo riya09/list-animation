@@ -1,0 +1,83 @@
+label {
+  cursor: pointer;
+  display: flex;
+  gap: 10px;
+  position: relative;
+  color: #5071e5;
+  width: max-content;
+  overflow: hidden;
+
+  input {
+    display: none;
+  }
+
+  .icon-container {
+    position: relative;
+    width: 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    svg {
+      position: absolute;
+
+      path {
+        transition: stroke-dashoffset $duration ease-out;
+        stroke: #6086e8;
+        stroke-width: 2px;
+      }
+
+      .todo-box-icon {
+        stroke-dasharray: 80, 100;
+        stroke-dashoffset: 0;
+        transition-delay: $duration * 0.2;
+      }
+
+      .todo-check-icon {
+        stroke-dasharray: 50;
+        stroke-dashoffset: 50;
+        transition-duration: $duration * 0.4;
+      }
+    }
+  }
+
+  .line {
+    position: absolute;
+    left: 20px;
+    top: 50%;
+    width: 0%;
+    height: 2px;
+    background: #6086e8;
+    transition: width $duration * 0.9 ease-out,
+      transform 0.4s cubic-bezier(0.46, -0.01, 0.25, 1);
+    transition-delay: $line-duration * 0.2, 0;
+  }
+
+  input:checked~span {
+    opacity: 0.5;
+  }
+
+  input:checked~.icon-container {
+    svg {
+      .todo-check-icon {
+        stroke-dashoffset: 0;
+        transition-delay: $duration * 0.4;
+      }
+
+      .todo-box-icon {
+        stroke-dashoffset: 100;
+        transition-delay: 0;
+      }
+    }
+  }
+
+  input:checked~.line {
+    width: 100%;
+    transform: translate3d(8px, 0, 0);
+    transition-delay: 0.2s, $line-duration;
+  }
+}
+
+label+label {
+  margin-top: 15px;
+}
