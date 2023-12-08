@@ -1,3 +1,16 @@
+$duration: 0.8s;
+$line-duration: 0.6s;
+
+.todo-list-container {
+  width: 350px;
+  max-width: 90%;
+  background: #fff;
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 0px 20px;
+  padding: 20px;
+  border-radius: 10px;
+  font-size: 18px;
+}
+
 label {
   cursor: pointer;
   display: flex;
