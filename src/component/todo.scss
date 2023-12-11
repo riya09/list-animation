@@ -1,5 +1,4 @@
 $duration: 1s;
-$line-duration: 0.6s;
 
 .todo-list-container {
   width: 350px;
@@ -67,29 +66,28 @@ label {
       transform 0.2s cubic-bezier(0.46, -0.01, 0.25, 1);
   }
 
-  input:checked~span {
-    opacity: 0.5;
-  }
-
-  input:checked~.icon-container {
-    svg {
-      .todo-check-icon {
-        stroke-dashoffset: 0;
-        transition-delay: $duration * 0.4;
-      }
-
-      .todo-box-icon {
-        stroke-dashoffset: 100;
-        transition-delay: 0;
+  input:checked ~ {
+    span {
+      opacity: 0.5;
+    }
+    .icon-container {
+      svg {
+        .todo-check-icon {
+          stroke-dashoffset: 0;
+          transition-delay: $duration * 0.4;
+        }
+        .todo-box-icon {
+          stroke-dashoffset: 100;
+          transition-delay: 0;
+        }
       }
     }
-  }
-
-  input:checked~.line {
-    width: 100%;
-    transform: translate3d(8px, 0, 0);
-    transition-duration: $duration, $duration*0.2;
-    transition-delay: 0.6s, $duration*1.2;
+    .line {
+      width: 100%;
+      transform: translate3d(8px, 0, 0);
+      transition-duration: $duration, $duration*0.2;
+      transition-delay: 0.6s, $duration*1.2;
+    }
   }
 }
 
